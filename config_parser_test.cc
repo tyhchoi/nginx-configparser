@@ -49,7 +49,7 @@ TEST_F(NginxStringConfigTest, UnbalancedConfig) {
 	EXPECT_FALSE(ParseString("server listen 80; }"));
 }
 
-//Creates text fixture for Parse (file name input)
+//Creates test fixture for Parse (file name input)
 class NginxConfigParserTest:public testing::Test {
 	protected:
 		bool ParseFile(const char* file_name) {
@@ -76,6 +76,7 @@ TEST_F(NginxConfigParserTest, DoubleNestedConfig) {
 	EXPECT_TRUE(ParseFile("snip_config"));
 }
 
+//Checks that a large config is parsed correctly
 //Code taken from https://www.nginx.com/resources/wiki/start/topics/examples/full/
 TEST_F(NginxConfigParserTest, FullExampleConfig) {
 	EXPECT_TRUE(ParseFile("fullex_config"));
